@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>
+    Subjects!
+  </h1>
+</div>
+
+<div class="row">
+  <div *ngFor="let subj of subjects" class="col-md-4" (click)="subj_click(subj)">
+    <div>
+      <label>Name: </label>{{subj.name}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="selected_subject">
+  <subject-detail [selected_subject]="selected_subject"></subject-detail>
+</div>
+
+<div>
+  <label>Add new subject:</label>
+  <form id="subjectAddBox">
+    <input #subjectName id="subject-name"/>
+    <button (click)="subj_add(subjectName.value)">Confirm</button>
+
+  </form>
+
+</div>
